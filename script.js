@@ -1,5 +1,5 @@
 const display = document.getElementById('display');
-const buttons = Array.from(document.getElementsByTagName('button'));
+const buttons = Array.from(document.getElementsByClassName('btn'));
 // console.log(buttons);
 let stringValue = '';
 let stringText = '';
