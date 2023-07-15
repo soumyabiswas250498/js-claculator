@@ -1,45 +1,63 @@
 'use strict';
-function d2b(str) {
-  let fractionArr = str.split('.');
-  let int = fractionArr[0];
-  let frac = fractionArr[1] / Math.pow(10, fractionArr[1].length);
-  let binaryInt = [];
-  let binaryFrac = [];
-  let set = new Set();
-  while (int >= 1) {
-    if (int % 2) {
-      binaryInt.push(1);
-      int = int - 1;
-    } else {
-      binaryInt.push(0);
-    }
-    int = int / 2;
+let convertion = true;
+const arrow = document.querySelector('#arrow');
+arrow.addEventListener('click', () => {
+  if (arrow.textContent === '↑') {
+    arrow.innerHTML = `<h1>&#8595;</h1>`;
+    convertion = false;
+  } else {
+    arrow.innerHTML = `<h1>&#8593;</h1>`;
+    convertion = true;
   }
+});
 
-  while (frac != 1) {
-    frac = 2 * frac;
-    if (frac > 1) {
-      frac = frac - 1;
-      binaryFrac.push(1);
-    } else if (frac == 1) {
-      binaryFrac.push(1);
-    } else {
-      binaryFrac.push(0);
-    }
-    // console.log(frac);
-    if (set.has(Math.round(frac * 100000))) {
-      break;
-    } else {
-      set.add(Math.round(frac * 100000));
-    }
+const binary = document.getElementById('binary');
+const decimal = document.getElementById('decimal');
+
+const calculate = document.getElementById('cal');
+calculate.addEventListener('click', () => {
+  if (convertion && decimal.value != '') {
+    let i = parseFloat(decimal.value);
+    binary.value = i.toString(2);
+  } else if (convertion === false && binary.value != '') {
+    console.log(b2d(binary.value));
+    decimal.value = b2d(binary.value);
+  } else {
+    decimal.value = '0';
+    binary.value = '0';
   }
-  //   console.log(frac);
-  //   console.log(set);
-  binaryInt.reverse();
-  let intText = binaryInt.join('');
-  let fracText = binaryFrac.join('');
-  return intText + '.' + fracText;
+});
+
+function b2d(str) {
+  const arrFraction = str.split('.');
+  const length = arrFraction.length;
+  if (length === 1) {
+    const arr = [...arrFraction[0]];
+    const n = arr.length;
+    let decInt = 0;
+    let i = n - 1;
+    arr.forEach(el => {
+      decInt += el * Math.pow(2, i);
+      i--;
+    });
+    return decInt;
+  } else if (length === 2) {
+    const arr1 = [...arrFraction[0]];
+    const arr2 = [...arrFraction[1]];
+    const n1 = arr1.length;
+    let decInt = 0;
+    let i1 = n1 - 1;
+    arr1.forEach(el => {
+      decInt += el * Math.pow(2, i1);
+      i1--;
+    });
+    let decFrac = 0;
+    let i2 = 1;
+    arr2.forEach(el => {
+      decFrac += el * Math.pow(2, -i2);
+      i2++;
+    });
+    const res = decInt + decFrac;
+    return res;
+  }
 }
-
-let str = '23.73';
-console.log(d2b(str));
