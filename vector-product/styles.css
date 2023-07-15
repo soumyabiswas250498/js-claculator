@@ -47,9 +47,9 @@
 }
 .vector {
   border-radius: 5px;
-  width: 30px;
-
-  transition: 1s;
+  width: 44px;
+  height: 20px;
+  transition: 0.5s;
 }
 
 button.product {
@@ -69,15 +69,14 @@ button.product:active {
 .vector:focus {
   background: rgb(163, 185, 245);
 }
-.result {
-  color: red;
-}
+
 .flex {
   display: flex;
   justify-content: center;
 }
-.flex p {
-  text-align: center;
+.flex button {
+  width: 100px;
+  margin: auto;
 }
 #container {
   text-align: center;

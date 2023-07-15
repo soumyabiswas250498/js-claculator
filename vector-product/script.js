@@ -1,11 +1,11 @@
 'use strict';
 let option = 0;
-// let output = 'hello';
+
 const display = document.getElementById('display');
 
 const optFunc = () => {
   option = document.getElementById('operation').selectedIndex;
-  console.log(option);
+
   if (option === 0) {
     document.querySelector('#container>h2').innerText = 'Vector Cross Product';
   } else {
@@ -13,7 +13,6 @@ const optFunc = () => {
   }
 };
 
-// console.log(calBtn);
 const calBtn = document.getElementById('calculate');
 calBtn.addEventListener('click', () => {
   calFunc();
@@ -21,8 +20,8 @@ calBtn.addEventListener('click', () => {
 const calFunc = () => {
   const inputA = document.querySelectorAll('#vector1');
   const inputB = document.querySelectorAll('#vector2');
-  const vectorA = [];
-  const vectorB = [];
+  let vectorA = [];
+  let vectorB = [];
   inputA.forEach(elem => {
     vectorA.push(elem.value);
   });
@@ -37,7 +36,6 @@ const calFunc = () => {
 };
 
 function crossProduct(vectorA, vectorB) {
-  //   console.log('cross', checkVector(vectorA), checkVector(vectorB));
   if (
     Array.isArray(checkVector(vectorA)) &&
     Array.isArray(checkVector(vectorB))
@@ -55,7 +53,6 @@ function crossProduct(vectorA, vectorB) {
 }
 
 function dotProduct(vectorA, vectorB) {
-  //   console.log('dot', checkVector(vectorA), checkVector(vectorB));
   if (
     Array.isArray(checkVector(vectorA)) &&
     Array.isArray(checkVector(vectorB))
@@ -84,4 +81,21 @@ function checkVector(vector) {
   }
   return out;
 }
-// display.innerText = output;
+
+const reset = document.getElementById('reset');
+
+reset.addEventListener('click', resetFun);
+
+function resetFun() {
+  display.innerText = '0';
+  const inputA = document.querySelectorAll('#vector1');
+  const inputB = document.querySelectorAll('#vector2');
+
+  inputA.forEach(elem => {
+    elem.value = '0';
+  });
+  inputB.forEach(elem => {
+    elem.value = '0';
+  });
+  //   console.log(reset);
+}
