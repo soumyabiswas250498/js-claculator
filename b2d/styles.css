@@ -1,0 +1,27 @@
+.content {
+  border: 2px solid;
+  border-color: rgb(202, 119, 16);
+  box-shadow: 2px 5px 13px 3px bisque;
+  margin: auto;
+  width: 75%;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(255, 249, 241);
+}
+.header {
+  text-align: center;
+}
+.header button {
+  font-size: 16px;
+  height: 40px;
+  width: 8rem;
+  margin: 0px 5px 15px 5px;
+  padding: 0px;
+  border: 1px solid;
+  border-radius: 5px;
+  border-color: rgb(202, 119, 16);
+  background-color: bisque;
+}
