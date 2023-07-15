@@ -30,12 +30,12 @@
 }
 
 #display {
-  text-align: right;
+  /* text-align: left; */
   height: 70px;
-  line-height: 50px;
+  /* line-height: 50px; */
   background-color: rgb(193, 193, 255);
   padding: 5px;
-  font-size: 45px;
+  font-size: 20px;
   width: 16.5rem;
   margin-left: auto;
   margin-right: auto;
@@ -44,4 +44,44 @@
   border-radius: 5px;
   overflow: auto;
   /* text-overflow: clip; */
+}
+.vector {
+  border-radius: 5px;
+  width: 30px;
+
+  transition: 1s;
+}
+
+button.product {
+  padding: 10px;
+  background: #c7e5b7;
+  border-radius: 5px;
+}
+button.product:active {
+  padding: 10px;
+  background: #6f9959;
+  border-radius: 5px;
+}
+
+.vector:hover {
+  background: rgb(199, 232, 243);
+}
+.vector:focus {
+  background: rgb(163, 185, 245);
+}
+.result {
+  color: red;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+}
+.flex p {
+  text-align: center;
+}
+#container {
+  text-align: center;
+}
+body {
+  background-color: blanchedalmond;
 }

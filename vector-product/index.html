@@ -13,13 +13,43 @@
         <h1>Vector Product</h1>
       </div>
       <div id="display">0</div>
-      <div class="button-area">
-        <div class="select">
-          <select name="operation" class="select-box" id="operation">
-            <option value="dot">Dot Product</option>
-            <option value="cross">Cross Product</option>
-          </select>
+      <div class="select">
+        <select
+          name="operation"
+          class="select-box"
+          id="operation"
+          onchange="optFunc()"
+        >
+          <option value="cross">Cross Product</option>
+          <option value="dot">Dot Product</option>
+        </select>
+      </div>
+      <div id="container">
+        <h2>Vector Cross Product</h2>
+
+        <p class="inputVector">
+          A =
+          <input type="text" class="vector" id="vector1" /> i +
+          <input type="text" class="vector" id="vector1" /> j +
+          <input type="text" class="vector" id="vector1" /> k
+        </p>
+        <p class="inputVector">
+          B =
+          <input type="text" class="vector" id="vector2" /> i +
+          <input type="text" class="vector" id="vector2" /> j +
+          <input type="text" class="vector" id="vector2" /> k
+        </p>
+
+        <button class="product" id="calculate">Calculate</button>
+
+        <div class="flex">
+          <p>A X B</p>
+          <p id="p1"></p>
+          <p id="p4"></p>
+          <p id="p2"></p>
         </div>
+
+        <p class="result" id="p3"></p>
       </div>
     </div>
     <script src="/vector-product/script.js"></script>
